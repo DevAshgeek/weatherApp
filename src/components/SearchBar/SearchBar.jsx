@@ -12,7 +12,7 @@ const SearchBar = (props) => {
   useEffect(() => {
     const handlefirstsearch = async () => {
       const result = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
       );
 
       const resultval = await result.data;
@@ -35,7 +35,7 @@ const SearchBar = (props) => {
     }
 
     const result = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
     );
     const resultval = await result.data;
     const { lat, lon, country } = resultval[0];
