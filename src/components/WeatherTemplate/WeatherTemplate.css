@@ -1,0 +1,631 @@
+.wtcont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.currweather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 800px;
+  height: fit-content;
+  border-radius: 15px;
+  color: rgb(13, 23, 33);
+  background-color: rgb(253, 247, 235);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.currhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+
+  .currttl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(21, 62, 62);
+  }
+
+  .currtm {
+    color: rgb(21, 62, 62);
+  }
+}
+
+.currhr {
+  width: 105%;
+  background-color: rgb(253, 247, 235);
+}
+
+.currbd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+}
+
+.currmain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.mainlf {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.temp,
+.weath {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+}
+
+.weath {
+  padding: 0 5px 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.temp {
+  padding: 0 5px 0 10px;
+  gap: 10px;
+  font-size: large;
+  align-items: start;
+}
+
+/* secondary current cont section */
+
+.currsec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  gap: 7px;
+  font-size: 17px;
+  width: 40%;
+}
+
+.currsec span {
+  padding: 10px 5px;
+  border-radius: 15px;
+  color: rgb(13, 23, 33);
+  background-color: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  strong {
+    color: rgb(142, 86, 23);
+  }
+}
+
+.todweather {
+  scroll-margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 800px;
+  height: fit-content;
+  border-radius: 15px;
+  background-color: rgb(253, 247, 235);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.todhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+
+  .todttl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(21, 62, 62);
+  }
+
+  .todtm {
+    color: rgb(21, 62, 62);
+  }
+}
+
+.todhr {
+  width: 105%;
+  background-color: rgb(21, 62, 62);
+}
+
+.todbd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.todmain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.todsumm {
+  display: flex;
+  font-size: 34px;
+  font-weight: 800;
+  color: rgb(142, 86, 23);
+  line-height: 1.5;
+  letter-spacing: 2px;
+  word-spacing: 4.5px;
+  text-align: center;
+}
+
+.toddtl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.todleft,
+.todright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+  color: rgb(142, 86, 23);
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  word-spacing: 4px;
+  text-align: center;
+}
+
+.todleft strong,
+.todright strong {
+  color: rgb(21, 62, 62);
+}
+.srise,
+.sset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourlyweather {
+  scroll-margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 800px;
+  height: fit-content;
+  border-radius: 15px;
+  background-color: rgb(253, 247, 235);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hrwhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+
+  .hrwttl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(21, 62, 62);
+  }
+
+  .hrwtm {
+    color: rgb(21, 62, 62);
+  }
+}
+
+.hrwhr {
+  width: 105%;
+  background-color: rgb(21, 62, 62);
+}
+
+.hrwbd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 96%;
+}
+
+.hrwmain {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.hrslides {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: rgba(21, 62, 620.5); 
+  overflow-x: scroll;
+  overflow-y: hidden; */
+}
+
+.hrwed {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  width: 120px;
+  min-width: 120px !important;
+  height: 270px;
+  background-color: aqua;
+  margin: 10px 3px;
+  border-radius: 25px;
+  padding: 20px 12px;
+  color: rgb(253, 247, 235);
+  font-size: 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: rgb(13, 23, 33);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hrsval {
+  font-size: 14px;
+  color: rgb(239, 145, 145);
+}
+
+.hrtemp {
+  font-size: larger;
+}
+
+.hrlywed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.scroll-btn {
+  color: rgb(13, 23, 33);
+  background-color: rgb(253, 247, 235);
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: -50px;
+}
+
+.right-arrow {
+  right: -50px;
+}
+
+.scroll-btn:hover {
+  color: rgb(6, 108, 81);
+  scale: 1.5;
+}
+
+.hrslides::-webkit-scrollbar {
+  display: none;
+}
+
+.hrslides::-webkit-scrollbar-thumb {
+  background-color: rgba(21, 62, 62, 0.5);
+  border-radius: 4px;
+}
+
+.hrslides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* daily weather */
+
+.dailyweather {
+  scroll-margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 800px;
+  height: fit-content;
+  border-radius: 15px;
+  background-color: rgb(253, 247, 235);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.dlywhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  text-align: left;
+
+  .dlywttl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(21, 62, 62);
+    width: 80%;
+  }
+}
+
+.dlyhr {
+  width: 105%;
+  background-color: rgb(21, 62, 62);
+}
+
+.dlywbd {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dlywedwrap {
+  width: 99%;
+  padding: 20px 7px;
+  color: rgb(13, 23, 33);
+  background-color: rgb(253, 247, 235);
+  border-radius: 15px;
+  border-top: 0.2px solid rgba(255, 255, 255, 0.1);
+  border-left: 0.4px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+  margin: 3.5px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.dlywedcont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.dlywedconthr {
+  height: 1px;
+  background-color: grey;
+  width: 100%;
+}
+
+.dlyddt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  .dlydt {
+    font-size: large;
+    color: rgb(240, 89, 89);
+    font-weight: 700;
+  }
+}
+
+.dlymid {
+  display: flex;
+  flex-direction: column;
+}
+
+.dlyweddes {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 10px;
+
+  .ddlymaxtemp {
+    font-size: 26px;
+  }
+}
+
+.dlymiddes {
+  color: rgb(142, 86, 23);
+  font-size: large;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.dlydetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center;
+
+  span {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: right;
+  }
+}
+
+.mtlyweathcont {
+  scroll-margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 800px;
+  height: fit-content;
+  border-radius: 15px;
+  background-color: rgb(253, 247, 235);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
+    0 -3px 8px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.mtlywhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  text-align: left;
+
+  .mtlywttl {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(21, 62, 62);
+    width: 80%;
+  }
+}
+
+.mtlyhr {
+  width: 100%;
+  background-color: rgb(21, 62, 62);
+}
+
+.mtlywbd {
+  display: grid;
+  grid-template-columns: repeat(7, 0.9fr);
+  grid-auto-rows: 220px;
+  gap: 5px;
+  width: 100%;
+  margin: 5px;
+  max-width: 800px;
+  background-color: rgb(253, 247, 235);
+}
+
+.mtlywedwrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 5px;
+  border-radius: 10px;
+  color: rgb(13, 23, 33);
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    sans-serif;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Hover effect for day blocks */
+.mtlywedwrap:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Header for each day */
+.mtlywedwrap .day-header {
+  display: inline-flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(142, 86, 23);
+  /* color: rgb(240, 89, 89); */
+}
+
+/* Content for each day */
+.mtlywedwrap .day-content {
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* .mday {
+  color: rgb(21, 62, 62);
+} */
+.mdate {
+  font-size: 15px !important;
+  color: rgb(21, 62, 62);
+}
+.mtlytemp {
+  color: rgb(21, 62, 62) !important;
+}
+
+.mtemp {
+  color: rgb(240, 89, 89);
+  font-size: 13px !important;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .monthlyweather {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .mtlywbd {
+    grid-template-columns: repeat(7, 0.1fr);
+    width: 100%;
+  }
+
+  .mtlywedwrap {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
