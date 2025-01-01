@@ -6,13 +6,14 @@ import { CiSearch } from "react-icons/ci";
 const SearchBar = (props) => {
   const locc = props.location;
   const [loc, setLoc] = useState(locc);
+  const APIKEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   // console.log(props.location);
 
   useEffect(() => {
     const handlefirstsearch = async () => {
       const result = await axios.get(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=${APIKEY}`
       );
 
       const resultval = await result.data;
@@ -35,7 +36,7 @@ const SearchBar = (props) => {
     }
 
     const result = await axios.get(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=c7395ae5805048ba2ea513f21368a7f1`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=${APIKEY}`
     );
     const resultval = await result.data;
     const { lat, lon, country } = resultval[0];

@@ -36,16 +36,6 @@ const Dropdown = ({ setClicked, location, country }) => {
     if (elementtotarget) {
       elementtotarget.scrollIntoView({ behavior: "smooth", block: "start" });
       toggleclicked();
-      //  const offset = -50; // Adjust this value based on the height of your header or any fixed elements
-      //  const targetPosition =
-      //    elementtotarget.getBoundingClientRect().top +
-      //    window.scrollY +
-      //    offset;
-
-      //  window.scrollTo({
-      //    top: targetPosition,
-      //    behavior: "smooth",
-      //  });
     } else {
       console.error("Target element not found:", clickedElementName);
     }
