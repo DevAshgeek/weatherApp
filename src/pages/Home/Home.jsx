@@ -22,7 +22,14 @@ const Home = () => {
         setCountry={setCont}
         setLocation={setLocation}
       />
-      {lat && lon && <WeatherTemplate latitude={lat} longitude={lon} />}
+      {lat && lon && (
+        <WeatherTemplate
+          latitude={lat}
+          longitude={lon}
+          location={location}
+          country={cont}
+        />
+      )}
       <Footer location={location} country={cont} />
     </div>
   );

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import "./WeatherTemplate.css";
 
-const WeatherTemplate = ({ latitude, longitude }) => {
+const WeatherTemplate = ({ latitude, longitude, location, country }) => {
   const APIKEY = import.meta.env.VITE_WEATHER_API_KEY;
   console.log(APIKEY);
   const lat = latitude;
@@ -236,7 +236,7 @@ const WeatherTemplate = ({ latitude, longitude }) => {
         <div className="currhead wthshead">
           <span className="currttl wthsttl">Current Weather</span>
           <span className="currtm wthstm">
-            {formatUnixTimestamp(currresult.dt)} UTC
+            {location}, {country} / {formatUnixTimestamp(currresult.dt)} UTC
           </span>
         </div>
         <hr className="wthshr" />
