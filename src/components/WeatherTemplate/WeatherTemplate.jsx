@@ -7,23 +7,21 @@ const WeatherTemplate = ({ latitude, longitude }) => {
   console.log(APIKEY);
   const lat = latitude;
   const lon = longitude;
+
   const [todWeath, setTodWeath] = useState({});
-
-  const scrollRef = useRef(null);
-
   const [daydate, setdaydate] = useState({
     date: "",
     day: "",
     month: "",
     year: "",
   });
-
   const [hoursWeather, setHoursWeather] = useState([]);
   const [dlweather, setDlWeather] = useState([]);
   const [monthlyWeather, setMonthlyWeather] = useState([]);
-  // const monthlyWeath = [];
-  const hoursWeatherData = [];
+  const [currresult, setCurrResult] = useState({});
+  const scrollRef = useRef(null);
 
+  const hoursWeatherData = [];
   // let daydate = {};
   let daysInWeek = [
     "Sunday",
@@ -34,8 +32,6 @@ const WeatherTemplate = ({ latitude, longitude }) => {
     "Friday",
     "Saturday",
   ];
-
-  const [currresult, setCurrResult] = useState({});
 
   // generic functionalities
   const formatUnixDate = (timestamp) => {
@@ -63,7 +59,7 @@ const WeatherTemplate = ({ latitude, longitude }) => {
     // Check if the date is valid
     if (isNaN(date)) {
       console.error("Invalid Date:", dateString);
-      return null; // Return null if the date is invalid
+      return null;
     }
     const unixTimestamp = Math.floor(date.getTime() / 1000);
     return unixTimestamp;
@@ -236,18 +232,18 @@ const WeatherTemplate = ({ latitude, longitude }) => {
   return (
     <div className="wtcont">
       {/* current weather */}
-      <div className="currweather" id="currweather">
-        <div className="currhead">
-          <span className="currttl">Current Weather</span>
-          <span className="currtm">
+      <div className="currweather weathercontainers" id="currweather">
+        <div className="currhead wthshead">
+          <span className="currttl wthsttl">Current Weather</span>
+          <span className="currtm wthstm">
             {formatUnixTimestamp(currresult.dt)} UTC
           </span>
         </div>
-        <hr className="currhr" />
-        <div className="currbd">
-          <div className="currmain">
-            <span className="mainlf">
-              <span className="weath">
+        <hr className="wthshr" />
+        <div className="currbd wthsbd">
+          <div className="currmain wthsmain">
+            <span className="currmainlf">
+              <span className="currweath">
                 <img
                   src={
                     currresult?.weather?.[0]?.icon
@@ -258,13 +254,15 @@ const WeatherTemplate = ({ latitude, longitude }) => {
                   height={100}
                   alt=""
                 />
-                <span className="weathDetail">
+                <span className="currweathDetail">
                   {currresult?.weather?.[0]?.description}
                 </span>
               </span>
+            </span>
 
-              <span className="temp">
-                <span className="acctemp">
+            <span className="currmainrt">
+              <span className="currtemp">
+                <span className="curracctemp">
                   <strong>Temp:</strong>{" "}
                   {((currresult.temp - 32) / 1.8).toFixed(1)}° C
                 </span>
@@ -274,90 +272,152 @@ const WeatherTemplate = ({ latitude, longitude }) => {
                 </span>
               </span>
             </span>
-
-            <span className="mainrt"></span>
           </div>
           <div className="currsec">
-            <span className="windval">
+            <span className="currwindval">
               <strong>Wind:</strong> {currresult.wind_deg} <strong>m/s</strong>,{" "}
               <strong>degrees:</strong> {currresult.wind_deg} <strong>°</strong>
             </span>
             {/* <hr className="sechr" /> */}
-            <span className="humidityval">
+            <span className="currhumidityval">
               <strong>Humidity:</strong> {currresult.humidity}{" "}
               <strong>%</strong>
             </span>
             {/* <hr className="sechr" /> */}
-            <span className="visval">
+            <span className="currvisval">
               <strong>Visibility:</strong> {currresult.visibility / 1000} km
             </span>
           </div>
         </div>
       </div>
       {/* todays weather */}
-      <div className="todweather" id="todweather">
-        <div className="todhead">
-          <span className="todttl">Todays Weather</span>
-          <span className="todtm">
+      <div className="todweather weathercontainers" id="todweather">
+        <div className="todhead wthshead">
+          <span className="todttl wthsttl">Todays Weather</span>
+          <span className="todtm wthstm">
             {daydate?.day}, {daydate?.date} / {daydate?.month} / {daydate?.year}
           </span>
         </div>
-        <hr className="todhr" />
-        <div className="todbd">
-          <div className="todmain">
-            <span className="todsumm">{todWeath.summary}</span>
+        <hr className="wthshr" />
+        <div className="todbd wthsbd">
+          <div className="todmain wthsmain">
             <span className="toddtl">
               <span className="todleft">
-                <span className="srise">
-                  <strong>SUNRISE</strong>{" "}
-                  <img
-                    src={`https://openweathermap.org/img/wn/01d@2x.png`}
-                    width={50}
-                    height={50}
-                    alt=""
-                  />{" "}
-                  {formatUnixTimestamp(todWeath.sunrise)} UTC
-                </span>
-                <span className="sset">
-                  <strong>SUNSET</strong>{" "}
-                  <img
-                    src={`https://openweathermap.org/img/wn/01n@2x.png`}
-                    width={50}
-                    height={50}
-                    alt=""
-                  />{" "}
-                  {formatUnixTimestamp(todWeath.sunset)} UTC
-                </span>
+                <span className="todsumm">{todWeath.summary}</span>
               </span>
               <span className="todright">
-                <span className="tempmax">
-                  <strong>Max Temperature:</strong>{" "}
+                <span className="todrtsd todtemps">
+                  <img
+                    className="todwedicon"
+                    src={
+                      todWeath?.weather?.[0]?.icon
+                        ? `https://openweathermap.org/img/wn/${todWeath.weather[0].icon}@2x.png`
+                        : ""
+                    }
+                    width={60}
+                    height={60}
+                  />
+                  <span className="todwedicondes">
+                    {todWeath?.weather?.[0]?.description}
+                  </span>
+                </span>
+                <span className="todtemps tempmax">
+                  <strong>Max Temp:</strong>{" "}
                   {(todWeath?.temp?.max - 273.15).toFixed(2)}° C
                 </span>
-                <span className="tempmin">
-                  <strong>Min Temperature:</strong>{" "}
+                <span className="todtemps tempmin">
+                  <strong>Min Temp:</strong>{" "}
                   {(todWeath?.temp?.min - 273.15).toFixed(2)}° C
                 </span>
-                <span className="tongtemp">
-                  <strong>Temperature at night:</strong>{" "}
+                <span className="todtemps tongtemp">
+                  <strong>Temp at night:</strong>{" "}
                   {(todWeath?.temp?.night - 273.15).toFixed(2)}° C
                 </span>
+              </span>
+            </span>
+            <span className="todwdes">
+              <span className="srise">
+                <strong>Sunrise</strong>{" "}
+                <img
+                  src={`https://openweathermap.org/img/wn/01d@2x.png`}
+                  width={50}
+                  height={50}
+                  alt=""
+                />{" "}
+                <span>{formatUnixTimestamp(todWeath.sunrise)} UTC</span>
+              </span>
+              <span className="sset">
+                <strong>Sunset</strong>{" "}
+                <img
+                  src={`https://openweathermap.org/img/wn/01n@2x.png`}
+                  width={50}
+                  height={50}
+                  alt=""
+                />{" "}
+                <span>{formatUnixTimestamp(todWeath.sunset)} UTC</span>
+              </span>
+              <span className="todpr toddesitm">
+                <strong className="toditmsttl">Atm. Pres</strong>
+                <span className="toditmval">{todWeath.pressure} hPa</span>
+              </span>
+              <span className="todhmd toddesitm">
+                <strong className="toditmsttl">Humidity</strong>
+                <span className="toditmval">{todWeath.humidity} %</span>
+              </span>
+
+              <span className="toddewp toddesitm">
+                <strong className="toditmsttl">Dew_point</strong>
+                <span className="toditmval"> {todWeath.dew_point} ° C</span>
+              </span>
+              <span className="todwind toddesitm">
+                <strong className="toditmsttl">Wind</strong>
+                <span className="toditmval">
+                  {todWeath.wind_speed} m/s, {todWeath.wind_deg} °
+                </span>
+              </span>
+              <span className="todclouds toddesitm">
+                <strong className="toditmsttl">Clouds</strong>
+                <span className="toditmval">{todWeath.clouds} %</span>
+              </span>
+              {todWeath?.pop ? (
+                <span className="todpop toddesitm">
+                  <strong className="toditmsttl">Precip</strong>
+                  <span className="toditmval">{todWeath.pop * 100} %</span>
+                </span>
+              ) : (
+                <></>
+              )}
+              {todWeath?.rain && (
+                <span className="todrain toddesitm">
+                  <strong className="toditmsttl">Rainfall</strong>
+                  <span className="toditmval">{todWeath.rain} mm</span>
+                </span>
+              )}
+              {todWeath?.snow && (
+                <span className="todsnow toddesitm">
+                  <strong className="toditmsttl">Snowfall</strong>
+                  <span className="toditmval">{todWeath.snow} mm</span>
+                </span>
+              )}
+              <span className="toduvi toddesitm">
+                <strong className="toditmsttl">UV Index</strong>
+                <span className="toditmval">{todWeath.uvi}</span>
               </span>
             </span>
           </div>
         </div>
       </div>
       {/* hourly weather */}
-      <div className="hourlyweather" id="hourlyweather">
-        <div className="hrwhead">
-          <span className="hrwttl">Hourly Weather</span>
-          <span className="todtm">
+      <div className="hourlyweather weathercontainers" id="hourlyweather">
+        <div className="hrwhead wthshead">
+          <span className="hrwttl wthsttl">Hourly Weather</span>
+          <span className="hrwtm wthstm">
             {daydate?.date} / {daydate?.month} / {daydate?.year}
           </span>
         </div>
-        <hr className="hrwhr" />
-        <div className="hrwbd">
-          <div className="hrwmain">
+        <hr className="wthshr" />
+        <div className="hrwbd wthsbd">
+          <div className="hrwmain wthsmain">
             <button className="scroll-btn left-arrow" onClick={scrollLeft}>
               &#9664;
             </button>
@@ -396,12 +456,12 @@ const WeatherTemplate = ({ latitude, longitude }) => {
         </div>
       </div>
       {/* daily weather of a week */}
-      <div className="dailyweather" id="dailyweather">
-        <div className="dlywhead">
-          <span className="dlywttl">Daily Weather</span>
+      <div className="dailyweather weathercontainers" id="dailyweather">
+        <div className="dlywhead wthshead">
+          <span className="dlywttl wthsttl">Daily Weather</span>
         </div>
-        <hr className="dlyhr" />
-        <div className="dlywbd">
+        <hr className="wthshr" />
+        <div className="dlywbd wthsbd">
           {dlweather.map((weather, index) => (
             <span key={index} className="dlywedwrap">
               <span id={weather.id} className="dlywedcont">
@@ -468,11 +528,11 @@ const WeatherTemplate = ({ latitude, longitude }) => {
         </div>
       </div>
       {/* monthly weather */}
-      <div className="mtlyweathcont" id="mtlyweathcont">
-        <div className="mtlywhead">
-          <span className="mtlywttl">Monthly Weather</span>
+      <div className="mtlyweathcont weathercontainers" id="mtlyweathcont">
+        <div className="mtlywhead wthshead">
+          <span className="mtlywttl wthsttl">Monthly Weather</span>
         </div>
-        <hr className="mtlyhr" />
+        <hr className="wthshr" />
         <div className="mtlywbd">
           {monthlyWeather.map((data, index) => (
             <div key={index} className="mtlywedwrap">
