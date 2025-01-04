@@ -47,6 +47,9 @@
   gap: 25px;
   word-spacing: 4px;
   letter-spacing: 1px;
+}
+
+.navbtns {
   font-size: 18px;
   cursor: pointer;
   color: rgb(196, 58, 58);
