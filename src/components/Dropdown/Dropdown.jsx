@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import { IoClose } from "react-icons/io5";
 import "./Dropdown.css";
+import { Link } from "react-router-dom";
 
 const Dropdown = ({ setClicked, location, country }) => {
   const dropdownRef = useRef(null);
@@ -11,34 +12,8 @@ const Dropdown = ({ setClicked, location, country }) => {
   };
 
   const gotoWeatherDetials = (e) => {
-    const clickedElement = e.target;
-    console.log(e.target.attributes[1]);
-    const clickedElementName = e.target.getAttribute("name");
-    let elementtotarget = null;
-    switch (clickedElementName) {
-      case "lttd":
-        elementtotarget = document.getElementById("todweather");
-        break;
-      case "lthr":
-        elementtotarget = document.getElementById("hourlyweather");
-        break;
-      case "ltdly":
-        elementtotarget = document.getElementById("dailyweather");
-        break;
-      case "ltmtly":
-        elementtotarget = document.getElementById("mtlyweathcont");
-        break;
-      default:
-        console.error("Invalid element name:", clickedElement);
-        return;
-    }
-
-    if (elementtotarget) {
-      elementtotarget.scrollIntoView({ behavior: "smooth", block: "start" });
-      toggleclicked();
-    } else {
-      console.error("Target element not found:", clickedElementName);
-    }
+    e.preventDefault();
+    toggleclicked();
   };
 
   useEffect(() => {
@@ -69,6 +44,16 @@ const Dropdown = ({ setClicked, location, country }) => {
       </span>
       <hr />
       {/* <span className="hrused"></span> */}
+
+      <span
+        className="litems litem5"
+        name="ltcurr"
+        onClick={(e) => {
+          gotoWeatherDetials(e);
+        }}
+      >
+        <Link to="/">Current</Link>
+      </span>
       <span
         className="litems litem1"
         name="lttd"
@@ -76,7 +61,7 @@ const Dropdown = ({ setClicked, location, country }) => {
           gotoWeatherDetials(e);
         }}
       >
-        Today
+        <Link to="/today">Today</Link>
       </span>
       <span
         className="litems litem2"
@@ -85,7 +70,7 @@ const Dropdown = ({ setClicked, location, country }) => {
           gotoWeatherDetials(e);
         }}
       >
-        Hourly
+        <Link to="/hourly">Hourly</Link>
       </span>
       <span
         className="litems litem3"
@@ -94,7 +79,7 @@ const Dropdown = ({ setClicked, location, country }) => {
           gotoWeatherDetials(e);
         }}
       >
-        Daily
+        <Link to="/daily">Daily</Link>
       </span>
       <span
         className="litems litem4"
@@ -103,7 +88,7 @@ const Dropdown = ({ setClicked, location, country }) => {
           gotoWeatherDetials(e);
         }}
       >
-        Monthly
+        <Link to="/monthly">Monthly</Link>
       </span>
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import TitleSection from "../../components/TitleSection/TitleSection";
-import WeatherTemplate from "../../components/WeatherTemplate/WeatherTemplate";
+import SearchBar from "./components/SearchBar/SearchBar";
+import TitleSection from "./components/TitleSection/TitleSection";
+import WeatherTemplate from "./components/WeatherTemplate/WeatherTemplate";
 import "./Home.css";
-import Footer from "../../components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 const Home = () => {
   const [lat, setLat] = useState();
   const [lon, setlon] = useState();

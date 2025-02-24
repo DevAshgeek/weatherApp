@@ -3,6 +3,8 @@ import WeatherPhoto from "../../assets/photos/weather photo.jpeg";
 import "./TitleSection.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Dropdown from "../Dropdown/Dropdown";
+import { Link } from "react-router-dom";
+
 const TitleSection = ({ location, country }) => {
   const [clicked, setClicked] = useState(false);
 
@@ -29,7 +31,7 @@ const TitleSection = ({ location, country }) => {
             />
           </span>
           <span className="ttl-name" onClick={scrollOnTop}>
-            <p>AeroWeather</p>
+            <Link to="/">AeroWeather</Link>
           </span>
         </div>
         <div className="right">
