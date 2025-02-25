@@ -12,7 +12,7 @@ import { Route, Routes } from "react-router-dom";
 
 const WeatherTemplate = ({ latitude, longitude, location, country }) => {
   const APIKEY = import.meta.env.VITE_WEATHER_API_KEY;
-  console.log(APIKEY);
+  // console.log(APIKEY);
   const lat = latitude;
   const lon = longitude;
 
@@ -219,7 +219,7 @@ const WeatherTemplate = ({ latitude, longitude, location, country }) => {
       // Update state
       setMonthlyWeather(validWeatherData);
 
-      console.log(validWeatherData);
+      // console.log(validWeatherData);
     } catch (e) {
       console.error("Error fetching monthly weather:", e);
     }
@@ -239,7 +239,7 @@ const WeatherTemplate = ({ latitude, longitude, location, country }) => {
 
   return (
     <div className="wtcont">
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         {/* current weather */}
         <Route

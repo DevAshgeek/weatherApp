@@ -34,9 +34,10 @@ span.ttl-img {
   padding: 2px;
 }
 
-span.ttl-name p {
+span.ttl-name a {
   line-height: 1.2;
   font-size: larger;
+  text-decoration: none;
   font-weight: 600;
   color: rgb(255, 255, 255);
   cursor: pointer;

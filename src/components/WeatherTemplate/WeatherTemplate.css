@@ -1,876 +1,181 @@
+/* Root variables for colors and spacing */
+:root {
+  --primary-bg: linear-gradient(135deg, #181818 10%, #222831 90%);
+  --container-bg: #262a32;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --border-radius: 1rem;
+  --primary-text: #e5e7eb; /* Lighter gray */
+  --secondary-text: #06b6d4; /* Tailwind cyan-500 */
+  --accent-color: #ff7043; /* Warm Orange */
+  --divider: rgba(255, 255, 255, 0.1);
+}
+
+/* Main container */
 .wtcont {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  /* padding-top: 0; */
-  gap: 20px;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #583b3b 20%, #414f48 100%);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  padding-top: 0;
+  background: var(--primary-bg);
+  font-family: "Inter", sans-serif;
+  color: var(--primary-text);
 }
 
+/* Weather Card */
 .weathercontainers {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  gap: 30px;
-  padding: 30px;
-  width: 95%;
-  max-width: 1200px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 92%;
+  max-width: 1100px;
+  background: var(--container-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px var(--shadow);
 }
 
+/* Header Section */
 .wthshead {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
+}
 
-  .wthstm {
-    font-size: 16px;
-    color: #136f63;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+.wthstm {
+  font-size: 1rem;
+  color: var(--secondary-text);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 
 .wthsttl {
-  font-size: 32px;
-  font-weight: bold;
-  color: #134e4a;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-text);
 }
 
-/* section devider */
+/* Section Divider */
 .wthshr {
-  width: 105%;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--divider);
   border: none;
-  margin: 10px 0;
+  margin: 1rem 0;
 }
 
+/* Weather Content */
 .wthsbd {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 1.2rem;
   width: 100%;
+  flex-wrap: wrap;
 }
 
+/* Main Weather Details */
 .wthsmain {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-}
-
-/* current weather */
-.currtm {
-  font-size: 18px;
-  color: #134e4a;
-}
-
-.currmain {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.currmainlf {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: left;
-  text-align: left;
-  width: 80%;
-
-  .currweath {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 5px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #134e4a;
-    text-align: left;
-  }
-}
-
-.currmainrt {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: left;
-  text-align: left;
-  width: 120%;
-
-  .currtemp {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: left;
-    gap: 5px;
-    font-size: 42px;
-    font-weight: bold;
-    color: #ff5722;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* secondary current cont section */
-.currsec {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  width: 90%;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.currsec span {
-  padding: 10px 15px;
-  font-size: 16px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease-in-out;
-
-  strong {
-    color: #ff5722;
-  }
-}
-
-.currsec span:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* todays weather */
-.todmain {
+/* Weather Data Items */
+.wthitem {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 20px;
-}
-
-.toddtl {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-}
-
-.todleft {
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  background: #ffffff;
-  border-radius: 30px;
-  padding: 50px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-  .todsumm {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ff5722;
-    text-align: left;
-    letter-spacing: 1.5px;
-    word-spacing: 1.3px;
-    padding: 10px;
-  }
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #2d3139;
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
-.todright {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 20px;
-  width: 35%;
-  background: #ffffff;
-  padding: 20px;
-  flex-wrap: wrap;
-
-  strong {
-    font-size: 18px;
-    color: #134e4a;
-  }
-
-  .todrtsd {
-    width: 100%;
-  }
-  .todtemps {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
-    text-align: left;
-    padding: 10px;
-    border-radius: 15px;
-    color: #ff5722;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-weight: 600;
-
-    strong {
-      color: #136f63;
-    }
-    .todwedicondes {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #ff5722;
-    }
-  }
-
-  .todtemps:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.todwdes {
-  display: flex;
-  justify-content: flex-start !important;
-  width: 100%;
-  gap: 15px;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-
-  .srise,
-  .sset {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: 140px;
-    color: #134e4a;
-    letter-spacing: 1.5px;
-    word-spacing: 1.3px;
-    span {
-      font-weight: 600;
-      color: #ff5722;
-    }
-  }
-
-  .toddesitm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    height: 140px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-    .toditmsttl {
-      font-size: 18px;
-      font-weight: 600;
-      color: #134e4a;
-      text-align: left;
-      letter-spacing: 1.5px;
-      word-spacing: 1.3px;
-      padding: 10px;
-    }
-
-    .toditmval {
-      font-size: 16px;
-      font-weight: 600;
-      color: #ff5722;
-      text-align: left;
-      letter-spacing: 0.9px;
-      word-spacing: 0.5px;
-      padding: 2px;
-    }
-  }
-}
-
-/* hourly weather */
-.hrwbd {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.hrwmain {
-  position: relative;
-  height: 100%;
-  max-width: 1000px;
-  overflow: hidden;
-  gap: 10px;
-}
-
-.hrslides {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  box-sizing: border-box;
-  scroll-snap-type: x mandatory;
-}
-
-.hrwed {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-  width: 110px;
-  min-width: 105px !important;
-  height: 250px;
-  margin: 15px 5px;
-  border-radius: 25px;
-  padding: 20px 15px;
-  color: black;
-  font-size: 16px;
+/* Item Title */
+.wthitmtitle {
+  font-size: 1.2rem;
   font-weight: 600;
-  background-color: white;
-  box-shadow: 0 8px 15px rgba(208, 184, 184, 0.2), 0 5px 5px rgba(0, 0, 0, 0.15),
-    0 -3px 8px rgba(255, 247, 247, 0.1) inset;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.hrwed:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.hrsval {
-  font-size: 14px;
-  color: rgb(239, 145, 145);
-}
-
-.hrtemp {
-  font-size: larger;
-}
-
-.hrlywed {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 16px;
-  color: #134e4a;
+  color: var(--primary-text);
   text-align: center;
+  padding: 6px 0;
 }
 
-.scroll-btn {
-  color: rgb(13, 23, 33);
-  background-color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.left-arrow {
-  left: -50px;
-}
-
-.right-arrow {
-  right: -50px;
-}
-
-.scroll-btn:hover {
-  color: rgb(6, 108, 81);
-  scale: 1.5;
-}
-
-.hrslides::-webkit-scrollbar {
-  display: none;
-}
-
-.hrslides::-webkit-scrollbar-thumb {
-  background-color: rgba(21, 62, 62, 0.5);
-  border-radius: 4px;
-}
-
-.hrslides::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* daily weather */
-.dlywhead {
-  text-align: left;
-
-  .dlywttl {
-    width: 80%;
-  }
-}
-
-.dlywbd {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-}
-
-.dlywedwrap {
-  width: 100%;
-  padding: 15px;
-  color: rgb(13, 23, 33);
-  background-color: white;
-  border-radius: 15px;
-  border: 0.2px 0.4px 2px 3px solid rgba(255, 255, 255, 0.1);
-  margin: 3.5px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.dlywedwrap:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.dlywedcont {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-}
-
-.dlywedconthr {
-  height: 1px;
-  background-color: grey;
-  width: 100%;
-}
-
-.dlyddt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-
-  .dlydt {
-    font-size: large;
-    color: rgb(240, 89, 89);
-    font-weight: 700;
-  }
-}
-
-.dlymid {
-  display: flex;
-  flex-direction: column;
-}
-
-.dlyweddes {
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 10px;
-  color: #134e4a;
-
-  .ddlymaxtemp {
-    font-size: 26px;
-  }
-}
-
-.dlymiddes {
-  color: rgb(142, 86, 23);
-  font-size: large;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+/* Item Value */
+.wthitmval {
+  font-size: 1.1rem;
   font-weight: 700;
-}
-
-.dlydetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
-  align-items: center;
-
-  span {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    text-align: right;
-  }
-}
-
-/* monthly weather */
-.mtlywhead {
-  text-align: left;
-
-  .mtlywttl {
-    width: 80%;
-  }
-}
-
-.mtlywbd {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-auto-rows: 220px;
-  gap: 5px;
-  width: 100%;
-  margin: 5px;
-  max-width: 800px;
-  background-color: white;
-}
-
-.mtlywedwrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 15px;
-  border-radius: 10px;
-  color: rgb(13, 23, 33);
-  background: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 14px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    sans-serif;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for day blocks */
-.mtlywedwrap:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Header for each day */
-.mtlywedwrap .day-header {
-  display: inline-flex;
-  flex-direction: column;
-  font-weight: bold;
-  font-size: 16px;
-  color: rgb(142, 86, 23);
-}
-
-/* Content for each day */
-.mtlywedwrap .day-content {
-  font-size: 12px;
+  color: var(--accent-color);
   text-align: center;
-  line-height: 1.5;
 }
 
-.mdate {
-  font-size: 15px !important;
-  color: rgb(21, 62, 62);
-}
-.mtlytemp {
-  color: rgb(21, 62, 62) !important;
-}
+/* ========== RESPONSIVE DESIGN ========== */
 
-.mtemp {
-  color: rgb(240, 89, 89);
-  font-size: 13px !important;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 1100px) {
-  /* General adjustments for smaller screens */
-
-  .currmain {
-    width: 110%;
-    justify-content: flex-start;
-  }
-
-  .currmainlf {
-    width: 75%;
-  }
-
-  .currmainrt {
-    width: 125%;
-
-    .currtemp {
-      font-size: 34px;
-    }
-  }
-}
-
+/* Tablets */
 @media (max-width: 768px) {
-  /* General adjustments for smaller screens */
   .weathercontainers {
-    padding: 10px;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
 
   .wthshead {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .wthsbd {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-  }
-
-  /* current weather */
-  .currbd {
-    justify-content: space-evenly;
-  }
-
-  .currmain {
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 15px;
-  }
-
-  .currmainlf {
-    width: 75%;
-
-    .currweath {
-      font-size: 20px;
-      text-align: center;
-    }
-  }
-
-  .currmainrt {
-    width: 125%;
-
-    .currtemp {
-      font-size: 24px;
-      text-align: center;
-    }
-  }
-
-  .currsec {
-    align-items: start;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-  }
-
-  /* today weather */
-
-  .todleft,
-  .todright {
-    padding: 15px;
-  }
-
-  /* Adjusting grid and font sizes for smaller screens */
-  .mtlywbd {
-    gap: 5px;
-  }
-
-  .mtlywedwrap {
-    font-size: 11px;
-  }
-  .toddtl {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .todleft,
-  .todright {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .wtcont {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
-  .weathercontainers {
-    padding-top: 15px;
-    padding: 5px;
-    margin: 25px 10px;
-  }
-  .wthsbd {
-    gap: 10px;
-    width: 100%;
-  }
-
-  .wthshead {
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
   }
 
   .wthsttl {
-    font-size: 22px;
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .wtcont {
+    padding: 0;
+    margin: 0;
   }
 
-  .currmain {
-    width: 90%;
+  .weathercontainers {
+    padding: 1.25rem;
+    margin: 1rem 0.5rem;
+    gap: 1rem;
   }
 
-  .currmainlf {
-    width: 100%;
-
-    .currweath {
-      font-size: 20px;
-      text-align: center;
-    }
-  }
-
-  .currmainrt {
-    width: 100%;
-
-    .currtemp {
-      font-size: 20px;
-      text-align: center;
-    }
-  }
-
-  .currsec {
-    padding: 10px;
-  }
-
-  .todleft,
-  .todright {
-    padding: 15px;
-  }
-
-  .todmain {
-    gap: 15px;
-  }
-
-  .toddtl {
-    width: 100%;
-    gap: 15px;
-  }
-
-  .todleft {
-    .todsumm {
-      font-size: 32px;
-      letter-spacing: 1.5px;
-      word-spacing: 1.3px;
-      padding: 10px;
-    }
-  }
-
-  .todright {
-    justify-content: center;
-    strong {
-      font-size: 18px;
-    }
-
-    .todrtsd {
-      width: 100%;
-    }
-    .todtemps {
-      width: 80%;
-    }
-  }
-
-  .todleft,
-  .todright {
-    width: 100%;
-  }
-
-  .todwdes {
-    gap: 10px;
-    flex-wrap: wrap;
-
-    .srise,
-    .sset {
-      padding: 8px;
-      border-radius: 15px;
-      height: 130px;
-      letter-spacing: 1.3px;
-      word-spacing: 1.1px;
-    }
-
-    .toddesitm {
-      height: 130px;
-      padding: 10px;
-      border-radius: 15px;
-
-      .toditmsttl {
-        font-size: 16px;
-        letter-spacing: 1.3px;
-        word-spacing: 1.1px;
-        padding: 8px;
-      }
-    }
-  }
-
-  .toddtl {
+  .wthsbd {
     flex-direction: column;
-    gap: 10px;
-  }
-
-  .todleft,
-  .todright {
-    padding: 10px;
-  }
-
-  .todsumm {
-    font-size: 24px;
-  }
-
-  .hrwmain {
-    max-width: 480px;
-    overflow: hidden;
-    gap: 10px;
-  }
-
-  .hrslides {
-    gap: 7px;
-    padding: 10px;
-  }
-
-  .hrwed {
-    gap: 15px;
-    height: 260px !important;
-    margin: 10px 5px;
-    border-radius: 25px;
-    padding: 10px 5px;
-    font-size: 16px;
+    gap: 0.75rem;
     text-align: center;
   }
 
-  .hrwed {
+  .wthshead {
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wthsttl {
+    font-size: 1.4rem;
+  }
+
+  .wthitem {
     width: 100%;
-    height: 180px;
-  }
-
-  .dlywedwrap {
-    padding: 10px;
-  }
-
-  .mtlywbd {
-    gap: 5px;
-  }
-
-  .mtlywedwrap {
-    font-size: 11px;
-  }
-
-  .mtlywbd {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    padding: 0.85rem;
   }
 }

@@ -1,0 +1,214 @@
+/* ========== GENERAL STYLES ========== */
+.todmain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Weather Details Section */
+.toddtl {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Left Side - Weather Summary */
+.todleft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  border-radius: 15px;
+  padding: 40px 20px;
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3); /* White shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.todleft:hover {
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+  transform: scale(1.02);
+}
+
+.todsumm {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff7043;
+  text-align: left;
+  letter-spacing: 1.5px;
+  padding: 10px;
+}
+
+/* Right Side - Temperature and Details */
+.todright {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  width: 35%;
+  padding: 20px;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  /* background: rgba(30, 30, 30, 0.7); */
+  backdrop-filter: blur(10px);
+  /* box-shadow: 0 3px 6px rgba(79, 76, 76, 0.3);  */
+  transition: box-shadow 0.3s ease;
+}
+/* 
+.todright:hover {
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+} */
+
+/* Temperature Display */
+.todtemps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: left;
+  padding: 20px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #ff7043;
+  background: rgba(20, 20, 30, 0.85);
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todtemps:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+}
+
+.todtemps strong {
+  color: #00d4ff;
+}
+
+/* Weather Description */
+.todwdes {
+  display: flex;
+  justify-content: flex-start !important;
+  width: 100%;
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+/* Sunrise & Sunset */
+.srise,
+.sset,
+.toddesitm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
+  height: 120px;
+  color: #00d4ff;
+  transition: box-shadow 0.3s ease;
+}
+
+.srise,
+.sset {
+  color: #ffcc80;
+}
+
+.srise:hover,
+.sset:hover,
+.toddesitm:hover {
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+}
+
+/* Weather Items */
+.toditmsttl {
+  font-size: 18px;
+  font-weight: 600;
+  color: #00d4ff;
+  text-align: center;
+  letter-spacing: 1.5px;
+  padding: 8px;
+}
+
+.toditmval {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffcc80;
+  text-align: center;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .toddtl {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .todleft,
+  .todright {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .todsumm {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .todtemps {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .todmain {
+    gap: 15px;
+  }
+
+  .toddtl {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .todleft {
+    padding: 15px;
+  }
+
+  .todsumm {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .todright {
+    justify-content: center;
+  }
+
+  .todtemps {
+    width: 100%;
+  }
+
+  .todwdes {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .srise,
+  .sset,
+  .toddesitm {
+    height: 100px;
+  }
+
+  .toditmsttl {
+    font-size: 16px;
+    padding: 6px;
+  }
+}

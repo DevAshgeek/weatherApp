@@ -1,0 +1,172 @@
+/* ========== DAILY WEATHER STYLES ========== */
+
+.dlywhead {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.dlywttl {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00eaff; /* Neon Cyan */
+}
+
+/* Main Daily Weather Section */
+.dlywbd {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 14px;
+}
+
+/* Weather Card */
+.dlywedwrap {
+  width: 100%;
+  padding: 18px;
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.dlywedwrap:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+}
+
+/* Weather Content */
+.dlywedcont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+/* Separator Line */
+.dlywedconthr {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Date Section */
+.dlyddt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dlydt {
+  font-size: 18px;
+  color: #ff7043; /* Warm Orange */
+  font-weight: bold;
+}
+
+/* Middle Section */
+.dlymid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Temperature & Weather Description */
+.dlyweddes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #00eaff; /* Neon Cyan */
+}
+
+.ddlymaxtemp {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ff7043; /* Warm Orange */
+}
+
+/* Weather Details */
+.dlymiddes {
+  color: #ffcc80; /* Soft Gold */
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Georgia", serif;
+}
+
+/* Additional Details */
+.dlydetails {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dlydetails span {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #d1f4ff; /* Soft Cyan for better readability */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dlydetails span:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(255, 112, 67, 0.4);
+  transform: scale(1.05);
+}
+
+/* Adjust stroke-based SVG icons */
+.dlydetails span svg {
+  stroke: #5ce1e6; /* Light Aqua - More Balanced */
+  stroke-width: 2px;
+  width: 22px;
+  height: 22px;
+  margin-right: 6px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .dlywedcont {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dlyweddes {
+    justify-content: center;
+  }
+
+  .dlydetails {
+    justify-content: center;
+  }
+
+  .dlydetails span {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dlywedwrap {
+    padding: 12px;
+  }
+
+  .dlydt {
+    font-size: 16px;
+  }
+
+  .ddlymaxtemp {
+    font-size: 24px;
+  }
+
+  .dlydetails span {
+    font-size: 14px;
+  }
+}

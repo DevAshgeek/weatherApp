@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import "./MnthlyWeather.css";
 
 const MnthlyWeather = ({ monthlyWeather, formatUnixDate }) => {
   return (
