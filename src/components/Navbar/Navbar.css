@@ -13,7 +13,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 0.8rem;
   flex-shrink: 0.9;
   padding: 20px 10px;
   background-color: #2e2e2e;
